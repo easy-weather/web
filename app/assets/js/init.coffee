@@ -9,7 +9,7 @@
   Utils: {}
   Templates: {}
 
-templates = ["Conditions", "Forecast", "ForecastDay", "Loading", "App", "Map"]
+templates = ["conditions", "forecast", "forecastDay", "loading", "app", "map"]
 
 _.each templates, (template) ->
   updateStorage = true
