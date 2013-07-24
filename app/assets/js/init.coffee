@@ -23,11 +23,12 @@ _.each templates, (template) ->
       updateStorage = false
       window.WEATHER.Templates[template] = storageResponse
       
-  $.ajax
-    url: "assets/tpl/" + template + ".html"
-    async: false
-    dataType: "text"
-    success: (data) ->
-      window.WEATHER.Templates[template] = data
-      localStorage.setItem "Template" + template, data
-      localStorage.setItem "Template" + template + "Time", new Date().getTime()
+  if updateStorage
+    $.ajax
+      url: "assets/tpl/" + template + ".html"
+      async: false
+      dataType: "text"
+      success: (data) ->
+        window.WEATHER.Templates[template] = data
+        localStorage.setItem "Template" + template, data
+        localStorage.setItem "Template" + template + "Time", new Date().getTime()
