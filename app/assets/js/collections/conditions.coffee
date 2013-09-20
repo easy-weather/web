@@ -1,7 +1,8 @@
 class WEATHER.Collections.Conditions extends Backbone.Collection.extend(
   StorageName: "Conditions"
   model: WEATHER.Models.Conditions
-  url: "http://54.245.106.49/easy-weather-api/index.php/weather/conditions/"
+  #url: "http://54.245.106.49/easy-weather-api/index.php/weather/conditions/"
+  url: "http://127.0.0.1:5000/conditions/"
   debug: false
 
   initialize: (options) ->
@@ -46,6 +47,6 @@ class WEATHER.Collections.Conditions extends Backbone.Collection.extend(
         if timeDifference < 3600000
           forceServer = false
           options.success JSON.parse(storageResponse)
-          
+
     Backbone.sync method, model, options  if forceServer
 )

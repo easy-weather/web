@@ -2,14 +2,14 @@
   Views:
     Sections: {}
     Modals: {}
-    
+
   Models: {}
   Collections: {}
   Data: {}
   Utils: {}
   Templates: {}
 
-templates = ["conditions", "forecast", "forecastDay", "loading", "app", "map"]
+templates = ["Conditions", "Forecast", "ForecastDay", "Loading", "App", "Map"]
 
 _.each templates, (template) ->
   updateStorage = true
@@ -22,7 +22,9 @@ _.each templates, (template) ->
     if timeDifference < 86400000
       updateStorage = false
       window.WEATHER.Templates[template] = storageResponse
-      
+
+  console.log "assets/tpl/" + template + ".html"
+
   if updateStorage
     $.ajax
       url: "assets/tpl/" + template + ".html"
