@@ -23,8 +23,6 @@ _.each templates, (template) ->
       updateStorage = false
       window.WEATHER.Templates[template] = storageResponse
 
-  console.log "assets/tpl/" + template + ".html"
-
   if updateStorage
     $.ajax
       url: "assets/tpl/" + template + ".html"

@@ -1,8 +1,7 @@
 class WEATHER.Collections.Forecast extends Backbone.Collection.extend(
   StorageName: "Forecast"
   model: WEATHER.Models.Forecast
-  #url: "http://54.245.106.49/easy-weather-api/index.php/weather/forecast/"
-  url: "http://127.0.0.1:5000/forecast/"
+  url: "http://54.245.106.49:5000/forecast/"
   debug: false
 
   initialize: (options) ->

@@ -8,9 +8,9 @@ WEATHER.Views.Forecast = Backbone.View.extend(
     forecast = @model.toJSON()
     $(@el).html @template
 
-    _.each forecast, ((day) ->
+    _.each forecast, (day) ->
       @el.find("#forecastContainer").append _.template(WEATHER.Templates.ForecastDay, day)
-    ), @
+    , @
 
     @
 )
