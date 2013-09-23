@@ -1,0 +1,33 @@
+<article id='conditionsContainer'>
+  <article id='location'>For <%= city %></article>
+  <h2>Today</h2>
+  <section id='conditionsMain'>
+    <img src='http://cloud.keepiteasy.net/images/icons/<%= icon %>.gif'>
+      <h3 id='currentTemp'><%= temp %> K</h3>
+      <span>(<%= temp_c %>° C)</span>
+    </img>
+  </section>
+  <section id='conditionsDetails'>
+    <article>
+      <p>Feels Like</p>
+      <p><%= feelslike %>° C</p>
+    </article>
+    <article>
+      <p>Humidity</p>
+      <p><%= humidity %></p>
+    </article>
+    <article>
+      <p>UV Index</p>
+      <p><%=  UV %></p>
+    </article>
+    <article>
+      <p>Visibility</p>
+      <p><%= visibility %>km</p>
+    </article>
+    <article>
+      <p>Precipitation</p>
+      <p><%= precip %>mm</p>
+    </article>
+  </section>
+  <p id='conditionsTime'><%= time %>s</p>
+</article>
