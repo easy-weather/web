@@ -1,7 +1,7 @@
 class WEATHER.Collections.Conditions extends Backbone.Collection.extend(
   StorageName: "Conditions"
   model: WEATHER.Models.Conditions
-  url: "http://54.245.106.49:5000/conditions/"
+  url: "http://keepiteasy.net:3001/conditions/"
   debug: false
 
   initialize: (options) ->

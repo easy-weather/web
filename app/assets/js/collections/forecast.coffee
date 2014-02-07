@@ -1,7 +1,7 @@
 class WEATHER.Collections.Forecast extends Backbone.Collection.extend(
   StorageName: "Forecast"
   model: WEATHER.Models.Forecast
-  url: "http://54.245.106.49:5000/forecast/"
+  url: "http://keepiteasy.net:3001/forecast/"
   debug: false
 
   initialize: (options) ->
