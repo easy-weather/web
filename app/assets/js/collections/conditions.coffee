@@ -1,7 +1,7 @@
 class WEATHER.Collections.Conditions extends Backbone.Collection.extend(
   StorageName: "Conditions"
   model: WEATHER.Models.Conditions
-  url: "http://54.245.106.49/easy-weather-api/index.php/weather/conditions/"
+  url: "http://keepiteasy.net:3001/conditions/"
   debug: false
 
   initialize: (options) ->
@@ -10,7 +10,7 @@ class WEATHER.Collections.Conditions extends Backbone.Collection.extend(
     @debug = options.debug  if options.debug
 
   parse: (response) ->
-    if Modernizr.localstorage
+    if Modernizr.localstorage and not @debug
       updateStorage = true
       storageResponse = localStorage.getItem(@StorageName)
       storageResponseTime = localStorage.getItem(@StorageName + "Time")
@@ -22,6 +22,7 @@ class WEATHER.Collections.Conditions extends Backbone.Collection.extend(
       if updateStorage
         localStorage.setItem @StorageName, JSON.stringify(response)
         localStorage.setItem @StorageName + "Time", new Date().getTime()
+
     response
 
   sync: (method, model, options) ->
@@ -46,6 +47,6 @@ class WEATHER.Collections.Conditions extends Backbone.Collection.extend(
         if timeDifference < 3600000
           forceServer = false
           options.success JSON.parse(storageResponse)
-          
+
     Backbone.sync method, model, options  if forceServer
 )

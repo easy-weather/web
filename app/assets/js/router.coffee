@@ -7,7 +7,6 @@ $ ->
 
     home: ->
       @appModel.on "geoLocationFound", (->
-
         forecast = new WEATHER.Collections.Forecast(
           lat: @appModel.geoLocation.coords.latitude
           long: @appModel.geoLocation.coords.longitude
