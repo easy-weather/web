@@ -1,7 +1,7 @@
 class WEATHER.Collections.Conditions extends Backbone.Collection.extend(
   StorageName: "Conditions"
   model: WEATHER.Models.Conditions
-  url: "http://keepiteasy.net:3001/conditions/"
+  url: "http://easyweather.herokuapp.com/conditions/"
   debug: false
 
   initialize: (options) ->
@@ -26,8 +26,12 @@ class WEATHER.Collections.Conditions extends Backbone.Collection.extend(
     response
 
   sync: (method, model, options) ->
+    if typeof(options) == 'undefined'
+      options = {}
     forceServer = true
-    options.dataType = "jsonp"
+
+    if !options.crossDomain
+      options.crossDomain = true
 
     switch method
       when "create"
