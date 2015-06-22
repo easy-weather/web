@@ -1,9 +1,9 @@
-"use strict";
-
 module.exports = function(grunt) {
+   'use strict';
 
   // Project configuration.
   grunt.initConfig({
+    pkg: grunt.file.readJSON('package.json'),
     coffee: {
       compile: {
         files: {
@@ -25,6 +25,9 @@ module.exports = function(grunt) {
     },
     sass: {
       dist: {
+        options: {
+          sourcemap: "none"
+        },
         files: {
           'public/assets/css/fluid.css': 'app/assets/css/style.scss'
         }
@@ -42,11 +45,33 @@ module.exports = function(grunt) {
           'public/assets/tpl/map.html': 'app/assets/tpl/map.haml',
         }
       }
-    }
+    },
+    concat: {
+      options: {
+        stripBanners: true
+      },
+      coffee: {
+        files: {
+          'public/assets/js/_views.js': ['public/assets/js/views/app.js', 'public/assets/js/views/conditions.js', 'public/assets/js/views/forecast.js', 'public/assets/js/views/home.js', 'public/assets/js/views/loading.js', 'public/assets/js/views/map.js'],
+          'public/assets/js/_app.js': ['public/assets/js/init.js','public/assets/js/router.js'],
+          'public/assets/js/_models.js': ['public/assets/js/models/app.js', 'public/assets/js/models/conditions.js', 'public/assets/js/models/forecast.js'],
+          'public/assets/js/_collections.js': ['public/assets/js/collections/conditions.js', 'public/assets/js/collections/forecast.js'],
+        }
+      }
+    },
+    jshint: {
+      afterconcat: ['public/assets/js/_app.js', 'public/assets/js/_collections.js', 'public/assets/js/_models.js', 'public/assets/js/_views.js',]
+    },
+    clean: ["public/assets/js/collections/", "public/assets/js/models", "public/assets/js/views", "public/assets/js/init.js", "public/assets/js/router.js"]
   });
 
-  grunt.registerTask('default', ['coffee', 'rubyHaml', 'sass']);
+  grunt.registerTask('default', ['coffee', 'rubyHaml', 'sass', 'concat', 'jshint', 'clean']);
+  grunt.registerTask('test', ['jshint']);
+
   grunt.loadNpmTasks('grunt-ruby-haml');
   grunt.loadNpmTasks('grunt-contrib-coffee');
   grunt.loadNpmTasks('grunt-contrib-sass');
+  grunt.loadNpmTasks('grunt-contrib-concat');
+  grunt.loadNpmTasks('grunt-contrib-clean');
+  grunt.loadNpmTasks('grunt-contrib-jshint');
 };
