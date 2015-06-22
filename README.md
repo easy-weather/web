@@ -1,3 +1,9 @@
+[![GitHub tag](https://img.shields.io/github/tag/easy-weather/web.svg)](https://github.com/easy-weather/web/tags)
+[![GitHub issues](https://img.shields.io/github/issues/easy-weather/web.svg)](https://github.com/easy-weather/web/issues)
+[![Dependency Status](https://david-dm.org/easy-weather/web.svg)](https://david-dm.org/easy-weather/web)
+[![GitHub license](https://img.shields.io/github/license/easy-weather/web.svg)]()
+
+
 #Easy-Weather
 A simple weather app taking advantage of HTML5 geolocation to provide current weather conditions and forecasts. Created with Backbone and written in HAML and CoffeeScript.
 
