@@ -1,7 +1,7 @@
 class WEATHER.Collections.Forecast extends Backbone.Collection.extend(
   StorageName: "Forecast"
   model: WEATHER.Models.Forecast
-  url: "http://easyweather.herokuapp.com/forecast/"
+  url: "https://easyweather.herokuapp.com/forecast/"
   debug: false
 
   initialize: (options) ->
