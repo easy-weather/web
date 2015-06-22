@@ -1,5 +1,7 @@
 [![GitHub tag](https://img.shields.io/github/tag/easy-weather/web.svg)](https://github.com/easy-weather/web/tags)
 [![GitHub issues](https://img.shields.io/github/issues/easy-weather/web.svg)](https://github.com/easy-weather/web/issues)
+[![Build Status](https://travis-ci.org/easy-weather/web.svg)](https://travis-ci.org/easy-weather/web)
+[![Codacy Badge](https://www.codacy.com/project/badge/4d0b112d20c9439ba552d5eb0353de06)](https://www.codacy.com/app/jeffhann/easy-weather-web)
 [![Dependency Status](https://david-dm.org/easy-weather/web.svg)](https://david-dm.org/easy-weather/web)
 [![GitHub license](https://img.shields.io/github/license/easy-weather/web.svg)]()
 
